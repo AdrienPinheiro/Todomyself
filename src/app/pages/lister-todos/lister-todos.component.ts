@@ -18,4 +18,16 @@ export class ListerTodosComponent implements OnInit{
     this.todoService.getAllTodos().subscribe(data => this.todos = data)
   }
 
+  checkValue(id : number){
+    this.todos.map(todo => {
+      if(todo.id == id){
+        todo.isActif = !todo.isActif
+        this.todoService.updateOneTodo(todo);
+      }
+    })
+  }
+
+  allInfo(id : number){
+    
+  }
 }

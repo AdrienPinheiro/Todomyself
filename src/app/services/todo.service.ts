@@ -15,4 +15,8 @@ export class TodoService {
   getAllTodos(): Observable<Todo[]>{
     return this.http.get<Todo[]>(this.url+'/todos');
   }
+
+  updateOneTodo(todo : Todo){
+    return this.http.patch<Todo>(this.url+'/todos/'+todo.id, todo);
+  }
 }

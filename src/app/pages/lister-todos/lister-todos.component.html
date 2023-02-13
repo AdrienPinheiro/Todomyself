@@ -1,7 +1,24 @@
 <section>
   <h2>Liste de DIM :</h2>
-  <div *ngFor="let todo of todos">
-    <p>{{todo.title}}</p>
-    <button type="checkbox">Fait ?</button>
+  <div class="list-todo">
+    <div *ngFor="let todo of todos" class="card col-3" (click)="allInfo(todo.id)">
+      <div *ngIf="todo.isActif" class="card-header">A faire</div>
+      <div *ngIf="!todo.isActif" class="card-header">Fait</div>
+      <div class="card-body">
+        <h4 *ngIf="todo.isActif" class="card-title">{{todo.title}}</h4>
+        <h4 *ngIf="!todo.isActif" class="card-title text-decoration-line-through">{{todo.title}}</h4>
+        <input
+          *ngIf="todo.isActif"
+          type="checkbox"
+          (change)="checkValue(todo.id)"
+        />
+        <input
+          *ngIf="!todo.isActif"
+          type="checkbox"
+          (change)="checkValue(todo.id)"
+          checked
+        />
+      </div>
+    </div>
   </div>
 </section>
