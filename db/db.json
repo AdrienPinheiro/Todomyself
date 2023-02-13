@@ -1,0 +1,18 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Faire le ménage",
+      "description": "Laver le linge, faire la vaiselle",
+      "created_at": "",
+      "isActif": true
+    },
+    {
+      "id": 1,
+      "title": "Faire à manger",
+      "description": "Faire une blanquette",
+      "created_at": "",
+      "isActif": true
+    }
+  ]
+}
