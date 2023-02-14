@@ -1,23 +1,30 @@
-<section>
-  <h2>Liste de DIM :</h2>
-  <div class="list-todo">
-    <div *ngFor="let todo of todos" class="card col-3" (click)="allInfo(todo.id)">
-      <div *ngIf="todo.isActif" class="card-header">A faire</div>
-      <div *ngIf="!todo.isActif" class="card-header">Fait</div>
-      <div class="card-body">
-        <h4 *ngIf="todo.isActif" class="card-title">{{todo.title}}</h4>
-        <h4 *ngIf="!todo.isActif" class="card-title text-decoration-line-through">{{todo.title}}</h4>
-        <input
-          *ngIf="todo.isActif"
-          type="checkbox"
-          (change)="checkValue(todo.id)"
-        />
-        <input
-          *ngIf="!todo.isActif"
-          type="checkbox"
-          (change)="checkValue(todo.id)"
-          checked
-        />
+<section class="">
+  <h2 class="h4 ms-5 text-decoration-underline">Liste de DIM :</h2>
+  <div class="d-flex justify-content-center">
+    <div class="list-todo d-flex flex-wrap col-6 justify-content-between">
+      <div *ngFor="let todo of todos" class="card col-5 mb-5" (click)="allInfo(todo.id)">
+        <div *ngIf="todo.isActif" class="card-header">A faire</div>
+        <div *ngIf="!todo.isActif" class="card-header">Fait</div>
+        <div class="card-body">
+          <div class="d-flex">
+            <h4 *ngIf="todo.isActif" class="card-title">{{todo.title}}</h4>
+            <h4 *ngIf="!todo.isActif" class="card-title text-decoration-line-through">{{todo.title}}</h4>
+            <input
+              *ngIf="todo.isActif"
+              type="checkbox"
+              (change)="checkValue(todo.id)"
+              class="ms-auto"
+            />
+            <input
+              *ngIf="!todo.isActif"
+              type="checkbox"
+              (change)="checkValue(todo.id)"
+              checked
+              class="ms-auto"
+            />
+          </div>
+          <p class="mb-0">{{todo.date}}</p>
+        </div>
       </div>
     </div>
   </div>
