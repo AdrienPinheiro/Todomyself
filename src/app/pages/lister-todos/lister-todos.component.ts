@@ -12,6 +12,8 @@ export class ListerTodosComponent implements OnInit{
 
   todos : Todo[] = [];
 
+  todoSelected: any;
+
   constructor(private todoService : TodoService) {
   }
 
@@ -22,13 +24,9 @@ export class ListerTodosComponent implements OnInit{
       .subscribe(data => this.todos = data);
   }
 
-  checkValue(id : number){
-    this.todos.map(todo => {
-      if(todo.id == id){
-        todo.isActif = !todo.isActif
-        this.todoService.updateOneTodo(todo).subscribe();
-      }
-    })
+  checkValue(todo : Todo){
+    todo.isActif = !todo.isActif
+    this.todoService.changeActif(todo).subscribe();
   }
 
   checkDo(todos : Todo[]){
@@ -37,7 +35,7 @@ export class ListerTodosComponent implements OnInit{
     })
   }
 
-  allInfo(id : number){
-
+  allInfo(todo : Todo){
+    this.todoSelected = todo
   }
 }
