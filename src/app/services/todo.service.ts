@@ -20,7 +20,8 @@ export class TodoService {
       }))
     );
   }
-  changeActif(todo : Todo){
+
+  updateTodo(todo : Todo){
     return this.http.patch<Todo>(this.url+'/todos/'+todo.id, todo);
   }
 
@@ -28,7 +29,7 @@ export class TodoService {
     return this.http.post<Todo>(this.url+'/todos', todo);
   }
 
-  updateTodo(todo: Todo){
-    return this.http.put<Todo>(this.url+'/todos/'+todo.id, todo);
+  deleteTodo(todo: Todo){
+    return this.http.delete(this.url+'/todos/'+todo.id);
   }
 }

@@ -1,12 +1,24 @@
-<section class="">
-  <h2 class="h4 ms-5 text-decoration-underline">Liste de DIM :</h2>
+<section>
+  <h2 class="h4 ms-4 text-decoration-underline">Liste de DIM :</h2>
+  <button class="btn btn-primary ms-5" (click)="showAddTodoForm = !showAddTodoForm">Ajouter une nouvelle Todo</button>
+  <form [hidden]="!showAddTodoForm" (ngSubmit)="createTodo()" [formGroup]="todoForm">
+    <div class="form-group">
+      <label for="title-create">Title</label>
+      <input type="text" formControlName="title" id="title-create" name="title" class="form-control"/>
+    </div>
+    <div class="form-group">
+      <label for="description-create">Description</label>
+      <textarea formControlName="description" id="description-create" name="description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
   <div class="d-flex justify-content-center">
     <div class="list-todo d-flex flex-wrap col-6 justify-content-between">
       <div *ngFor="let todo of todos" class="card col-5 mb-5">
         <div class="card-header">{{todo.isActif ? "A faire": "Fait"}}</div>
-        <div class="card-body">
+        <div class="card-body" [ngClass]="{'text-decoration-line-through': !todo.isActif}">
           <div class="d-flex">
-            <h4 [ngClass]="{'selected': todo === todoSelected, 'card-title': todo.isActif, 'text-decoration-line-through': !todo.isActif}" (click)="allInfo(todo)">{{todo.title}}</h4>
+            <h4 [ngClass]="{'selected': todo === todoSelected}" (click)="viewDetail(todo)">{{todo.title}}</h4>
             <input
               name="{{todo.id}}"
               type="checkbox"
@@ -16,7 +28,19 @@
             />
           </div>
           <p class="mb-0">{{todo.date}}</p>
-          <p *ngIf="todo === todoSelected">{{todo.description}}</p>
+          <p *ngIf="todo.isActif" (click)="editTodo(todo)">modifier</p>
+         <form *ngIf="todo.editing" (submit)="updateTodo(todo)" [formGroup]="todoForm">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" formControlName="title" id="title" name="title" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea formControlName="description" id="description" name="description" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Sauvegarder</button>
+          </form>
+          <button *ngIf="!todo.isActif" (click)="deleteTodo(todo)" class="btn btn-primary">Supprimer la tâche</button>
         </div>
       </div>
     </div>
