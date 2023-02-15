@@ -9,7 +9,9 @@ import {Todo} from "../models/todo";
 })
 export class TodoService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   url = "http://localhost:3000";
 
@@ -20,6 +22,7 @@ export class TodoService {
       }))
     );
   }
+
   updateTodo(todo : Todo){
     return this.http.patch<Todo>(this.url+'/todos/'+todo.id, todo);
   }
