@@ -9,7 +9,9 @@ import {Todo} from "../models/todo";
 })
 export class TodoService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
 
   url = "http://localhost:3000";
 
