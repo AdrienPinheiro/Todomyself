@@ -57,6 +57,7 @@ export class ListerTodosComponent implements OnInit{
       editing: false,
       isActif: true
     }
+
     this.todoService.createTodo(this.todo).subscribe();
     this.getAllTodo();
   }

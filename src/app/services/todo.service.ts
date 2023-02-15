@@ -13,11 +13,11 @@ export class TodoService {
     private http: HttpClient
   ) {}
 
-  url = "http://localhost:3000";
+  url = "https://adrienpinheiro.github.io/Data/todos.json";
 
   getAllTodos(): Observable<Todo[]>{
-    return this.http.get<Todo[]>(this.url+'/todos').pipe(
-      map((data) => data.sort((a, b) => {
+    return this.http.get<{ todos : Todo[] }>(this.url).pipe(
+      map((data) => data.todos.sort((a, b) => {
         return new Date(a.date).getTime() - new Date(b.date).getTime();
       }))
     );
