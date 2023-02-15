@@ -3,5 +3,6 @@ export interface Todo{
   title:string,
   description:string,
   date: Date,
+  editing:boolean,
   isActif:boolean
 }

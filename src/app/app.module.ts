@@ -7,6 +7,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {MenuComponent} from "./components/menu/menu.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {ListerTodosComponent} from "./pages/lister-todos/lister-todos.component";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {ListerTodosComponent} from "./pages/lister-todos/lister-todos.component"
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

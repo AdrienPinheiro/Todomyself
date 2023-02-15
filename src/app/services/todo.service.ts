@@ -20,7 +20,15 @@ export class TodoService {
       }))
     );
   }
-  updateOneTodo(todo : Todo){
+  updateTodo(todo : Todo){
     return this.http.patch<Todo>(this.url+'/todos/'+todo.id, todo);
+  }
+
+  createTodo(todo : Todo){
+    return this.http.post<Todo>(this.url+'/todos', todo);
+  }
+
+  deleteTodo(todo: Todo){
+    return this.http.delete(this.url+'/todos/'+todo.id);
   }
 }
