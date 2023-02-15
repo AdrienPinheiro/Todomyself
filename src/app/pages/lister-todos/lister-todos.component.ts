@@ -16,10 +16,7 @@ export class ListerTodosComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.todoService.getAllTodos().pipe(map((data) => data.sort((a, b) => {
-      return a.isActif === b.isActif ? 0 : a.isActif ? -1 : 1;
-    })))
-      .subscribe(data => this.todos = data);
+    this.getAllTodo();
   }
 
   checkValue(id : number){
@@ -27,6 +24,8 @@ export class ListerTodosComponent implements OnInit{
       if(todo.id == id){
         todo.isActif = !todo.isActif
         this.todoService.updateOneTodo(todo).subscribe();
+        this.getAllTodo();
+        console.log(this.todos)
       }
     })
   }
@@ -38,6 +37,12 @@ export class ListerTodosComponent implements OnInit{
   }
 
   allInfo(id : number){
+    console.log(id)
+  }
 
+  getAllTodo(){
+    this.todoService.getAllTodos().pipe(map((data) => data.sort((a, b) => {
+      return a.isActif === b.isActif ? 0 : a.isActif ? -1 : 1;
+    }))).subscribe(data => this.todos = data);
   }
 }
