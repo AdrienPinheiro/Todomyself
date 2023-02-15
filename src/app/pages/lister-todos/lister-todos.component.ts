@@ -4,7 +4,7 @@ import {Todo} from "../../models/todo";
 import {TodoService} from "../../services/todo.service";
 import { FormBuilder, Validators } from '@angular/forms';
 import {IdGeneratorService} from "../../services/id-generator.service";
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-lister-todos',
@@ -79,33 +79,6 @@ export class ListerTodosComponent implements OnInit{
     this.todos.sort((a, b) => {
       return a.isActif === b.isActif ? 0 : a.isActif ? -1 : 1;
     })
-  }
-
-  allInfo(todo : Todo){
-    if(this.todoSelected == todo){
-      this.todoSelected = null;
-    } else {
-      this.todoSelected = todo;
-    }
-  }
-
-  editTodo(todo : Todo){
-    todo.editing = !todo.editing;
-  }
-
-  updateTodo(todo: Todo){
-    const index = this.todos.indexOf(todo);
-    this.todo = this.todos.at(index);
-
-    this.todo = {
-      id: this.todo.id,
-      title: this.todoForm.value.title || this.todo.title,
-      description: this.todoForm.value.description || this.todo.description,
-      date: this.todo.date,
-      editing: false,
-      isActif: true
-    }
-    this.todoService.updateTodo(this.todo).subscribe();
   }
 
   deleteTodo(todo: Todo){

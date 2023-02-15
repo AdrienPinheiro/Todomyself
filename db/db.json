@@ -5,7 +5,6 @@
       "title": "Faire le ménage",
       "description": "Laver le linge, faire la vaiselle",
       "date": "2018-08-15",
-      "editing": false,
       "isActif": true
     },
     {
@@ -13,7 +12,6 @@
       "title": "Faire à manger",
       "description": "Faire une blanquette",
       "date": "2019-08-15",
-      "editing": false,
       "isActif": true
     },
     {
@@ -21,7 +19,6 @@
       "title": "Regarder une série",
       "description": "Lucifer saison 2",
       "date": "2017-08-15",
-      "editing": false,
       "isActif": true
     },
     {
@@ -29,7 +26,6 @@
       "title": "Faire du sport",
       "description": "Séance abdo",
       "date": "2020-08-15",
-      "editing": false,
       "isActif": true
     },
     {
@@ -37,7 +33,6 @@
       "title": "Acheter un cadeau d'anniversaire",
       "description": "Pour David",
       "date": "2021-08-15",
-      "editing": false,
       "isActif": true
     }
   ]
