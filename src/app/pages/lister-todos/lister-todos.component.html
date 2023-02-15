@@ -1,7 +1,24 @@
-<section>
-  <h2>Liste de DIM :</h2>
-  <div *ngFor="let todo of todos">
-    <p>{{todo.title}}</p>
-    <button type="checkbox">Fait ?</button>
+<section class="">
+  <h2 class="h4 ms-5 text-decoration-underline">Liste de DIM :</h2>
+  <div class="d-flex justify-content-center">
+    <div class="list-todo d-flex flex-wrap col-6 justify-content-between">
+      <div *ngFor="let todo of todos" class="card col-5 mb-5">
+        <div class="card-header">{{todo.isActif ? "A faire": "Fait"}}</div>
+        <div class="card-body">
+          <div class="d-flex">
+            <h4 [ngClass]="{'selected': todo === todoSelected, 'card-title': todo.isActif, 'text-decoration-line-through': !todo.isActif}" (click)="allInfo(todo)">{{todo.title}}</h4>
+            <input
+              name="{{todo.id}}"
+              type="checkbox"
+              [checked]="!todo.isActif"
+              (change)="checkValue(todo)"
+              class="ms-auto"
+            />
+          </div>
+          <p class="mb-0">{{todo.date}}</p>
+          <p *ngIf="todo === todoSelected">{{todo.description}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

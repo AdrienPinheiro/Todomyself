@@ -2,6 +2,6 @@ export interface Todo{
   id:number,
   title:string,
   description:string,
-  created_at:Date,
+  date: Date,
   isActif:boolean
 }
