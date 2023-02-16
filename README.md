@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
 
+## Warning
+
+If the github page does not work, it's better to clone the repository to be able to test all the features. Note that some modifications, listed below, will have to be done to allow the proper functioning locally.
+
 ## Download project
 
 Run `npm i` to install all dependencies for the proper functioning of the code environment.
