@@ -23,6 +23,16 @@ export class TodoService {
     );
   }
 
+  /*url = "http://localhost:3000";
+
+  getAllTodos(): Observable<Todo[]>{
+    return this.http.get<Todo[]>(this.url+'/todos').pipe(
+      map((data) => data.todos.sort((a, b) => {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+      }))
+    );
+  }*/
+
   updateTodo(todo : Todo){
     return this.http.patch<Todo>(this.url+'/todos/'+todo.id, todo);
   }
