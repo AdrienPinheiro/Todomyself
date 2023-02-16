@@ -16,7 +16,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Backend
 
-Run `npm run db` for use "json-server", a REST API JSON format on front folder.
+Run `npm run db` for use "json-server", a REST API JSON format on front folder. Moreover, uncommented the function getAllTodo in todo.service and the url and commented on the other values of the same name.
 
 ## Code scaffolding
 
